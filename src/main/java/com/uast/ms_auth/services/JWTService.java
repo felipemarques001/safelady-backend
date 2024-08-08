@@ -31,7 +31,7 @@ public class JWTService {
         }
     }
 
-    public String validateTokenAndGetUsername(String token) {
+    public String validateTokenAndGetCpf(String token) {
         try {
             return JWT.require(ALGORITHM)
                     .withIssuer(ISSUER)

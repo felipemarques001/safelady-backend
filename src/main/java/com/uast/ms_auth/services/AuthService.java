@@ -23,10 +23,7 @@ public class AuthService {
         var userToken = new UsernamePasswordAuthenticationToken(requestDTO.cpf(), requestDTO.password());
         Authentication authentication = authenticationManager.authenticate(userToken);
 
-        final String jwtToken = jwtService.generateToken((User) authentication.getPrincipal());
-        final UserRole userRole = ((User) authentication.getPrincipal()).getRole();
-
-//        return new LoginResponseDTO(jwtToken, userRole);
-        return jwtToken;
+        // Returns the authenticated user's JWT token
+        return jwtService.generateToken((User) authentication.getPrincipal());
     }
 }
