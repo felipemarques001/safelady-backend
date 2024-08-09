@@ -24,4 +24,12 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
+
+    @ExceptionHandler(FieldAlreadyInUseException.class)
+    protected ResponseEntity<Map<String, String>> handleFieldAlreadyInUseException(FieldAlreadyInUseException ex) {
+        Map<String, String> error = new HashMap<>();
+        error.put(ex.getFieldError(), ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
 }
