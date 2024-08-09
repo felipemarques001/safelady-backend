@@ -1,5 +1,6 @@
 package com.uast.ms_auth.validators.cpf;
 
+import com.uast.ms_auth.exceptions.CpfFormatException;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
@@ -70,8 +71,7 @@ public class CpfValidator implements ConstraintValidator<CpfConstraint, String> 
             // Verifies if the computed digits correspond to the given digits
             return (dig10 == value.charAt(9)) && (dig11 == value.charAt(10));
         } catch (RuntimeException ex) {
-            System.out.println(ex.getMessage());
-            return false;
+            throw new CpfFormatException();
         }
     }
 }
