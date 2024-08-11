@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class AuthControllerTest {
@@ -40,8 +39,8 @@ public class AuthControllerTest {
 
         ResponseEntity<LoginResDTO> response = authController.login(loginReqDTO);
 
-        assertEquals(response.getStatusCode(), HttpStatus.OK);
-        assertEquals(response.getBody().getClass(), LoginResDTO.class);
-        assertEquals(response.getBody().jwtToken(), jwtToken);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(LoginResDTO.class, response.getBody().getClass());
+        assertEquals(jwtToken, response.getBody().jwtToken());
     }
 }

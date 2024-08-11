@@ -47,7 +47,7 @@ public class JWTServiceTest {
     void givenToken_whenValidateToken_thenReturnCpf() {
         String token = jwtService.generateToken(user);
         String cpf = jwtService.validateTokenAndGetCpf(token);
-        assertEquals(user.getUsername(), cpf);
+        assertEquals(cpf, user.getUsername());
     }
 
     @Test
@@ -57,7 +57,7 @@ public class JWTServiceTest {
         try {
             jwtService.validateTokenAndGetCpf(invalidToken);
         } catch (RuntimeException ex) {
-            assertEquals(ex.getClass(), InvalidJWTException.class);
+            assertEquals(InvalidJWTException.class, ex.getClass());
         }
     }
 }

@@ -9,14 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CpfValidatorTest {
 
-    private final CpfValidator cpfValidator = new CpfValidator();
+    private final CpfValidator validator = new CpfValidator();
 
     @DisplayName("Given valid CPF, when isValid(), then return true")
     @Test
     void givenValidCpf_whenIsValid_thenReturnTrue() {
         final String cpf = "71793119015";
 
-        boolean isCpfValid = cpfValidator.isValid(cpf, null);
+        boolean isCpfValid = validator.isValid(cpf, null);
 
         assertTrue(isCpfValid);
     }
@@ -29,10 +29,10 @@ public class CpfValidatorTest {
         final String cpf3 = "717931190151";
         final String cpf4 = "11111111111";
 
-        boolean isCpf1Valid = cpfValidator.isValid(cpf1, null);
-        boolean isCpf2Valid = cpfValidator.isValid(cpf2, null);
-        boolean isCpf3Valid = cpfValidator.isValid(cpf3, null);
-        boolean isCpf4Valid = cpfValidator.isValid(cpf4, null);
+        boolean isCpf1Valid = validator.isValid(cpf1, null);
+        boolean isCpf2Valid = validator.isValid(cpf2, null);
+        boolean isCpf3Valid = validator.isValid(cpf3, null);
+        boolean isCpf4Valid = validator.isValid(cpf4, null);
 
         assertFalse(isCpf1Valid);
         assertFalse(isCpf2Valid);
@@ -45,7 +45,7 @@ public class CpfValidatorTest {
     void givenNullCpf_whenIsValid_thenReturnFalse() {
         final String cpf = null;
 
-        boolean isCpfValid = cpfValidator.isValid(cpf, null);
+        boolean isCpfValid = validator.isValid(cpf, null);
 
         assertFalse(isCpfValid);
     }
