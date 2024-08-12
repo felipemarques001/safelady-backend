@@ -47,6 +47,7 @@ public class GlobalExceptionHandlerTest {
         ResponseEntity<Map<String, String>> response = handler.handleFieldAlreadyInUseException(ex);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertNotNull(response.getBody());
         assertTrue(response.getBody().containsKey(fieldName.toLowerCase()));
         assertEquals(ex.getMessage(), response.getBody().get(fieldName.toLowerCase()));
     }
