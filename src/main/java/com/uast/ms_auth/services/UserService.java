@@ -28,6 +28,10 @@ public class UserService {
             throw new FieldAlreadyInUseException("CPF", reqDTO.cpf());
         }
 
+        if(userRepository.findByPhoneNumber(reqDTO.phoneNumber()) != null) {
+            throw new FieldAlreadyInUseException("phone number", reqDTO.phoneNumber());
+        }
+
         userRepository.save(createUser(reqDTO));
     }
 
