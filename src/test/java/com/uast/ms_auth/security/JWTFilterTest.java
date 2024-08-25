@@ -51,7 +51,7 @@ public class JWTFilterTest {
     @Mock
     private SecurityContext securityContext;
 
-    private final User user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
+    private final User user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Rocha", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
 
     @BeforeEach
     void setUp() {

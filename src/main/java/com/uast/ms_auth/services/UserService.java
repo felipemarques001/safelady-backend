@@ -32,20 +32,6 @@ public class UserService {
             throw new FieldAlreadyInUseException("phone number", reqDTO.phoneNumber());
         }
 
-        userRepository.save(createUser(reqDTO));
-    }
-
-    private User createUser(CreateUserReqDTO reqDTO) {
-        User user = new User();
-        user.setCpf(reqDTO.cpf());
-        user.setName(reqDTO.name());
-        user.setCity(reqDTO.city());
-        user.setStreet(reqDTO.street());
-        user.setPassword(passwordEncoder.encode(reqDTO.password()));
-        user.setPhoneNumber(reqDTO.phoneNumber());
-        user.setBirthDate(LocalDate.parse(reqDTO.birthDate()));
-        user.setRole(UserRole.USER);
-
-        return user;
+        userRepository.save(new User(reqDTO, passwordEncoder.encode(reqDTO.password())));
     }
 }

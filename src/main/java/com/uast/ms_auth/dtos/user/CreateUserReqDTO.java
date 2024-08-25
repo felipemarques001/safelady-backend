@@ -5,15 +5,16 @@ import com.uast.ms_auth.validators.localDate.LocalDateConstraint;
 import com.uast.ms_auth.validators.phoneNumber.PhoneNumberConstraint;
 import jakarta.validation.constraints.NotBlank;
 
-import java.time.LocalDate;
-
 public record CreateUserReqDTO (
 
         @CpfConstraint
         String cpf,
 
-        @NotBlank(message = "Name cannot be empty")
-        String name,
+        @NotBlank(message = "First name cannot be empty")
+        String firstName,
+
+        @NotBlank(message = "Last name cannot be empty")
+        String lastName,
 
         @NotBlank(message = "City cannot be empty")
         String city,

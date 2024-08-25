@@ -81,14 +81,15 @@ public class CreateUserIT {
     @DisplayName("Given empty fields, when POST, then return messages and 400")
     @Test
     void givenInvalidCpf_whenPOST_thenReturnMessageAnd400() {
-        var userReqDTO = new CreateUserReqDTO("", "", "", "", "", "", "");
+        var userReqDTO = new CreateUserReqDTO("", "", "", "", "", "", "", "");
 
         ResponseEntity<Map> response = restTemplate.postForEntity("/api/user", userReqDTO, Map.class);
 
         assertNotNull(response);
         assertNotNull(response.getBody());
         assertTrue(response.getBody().containsKey("cpf"));
-        assertTrue(response.getBody().containsKey("name"));
+        assertTrue(response.getBody().containsKey("firstName"));
+        assertTrue(response.getBody().containsKey("lastName"));
         assertTrue(response.getBody().containsKey("city"));
         assertTrue(response.getBody().containsKey("street"));
         assertTrue(response.getBody().containsKey("password"));
@@ -173,6 +174,7 @@ public class CreateUserIT {
         return new CreateUserReqDTO(
                 cpf,
                 "Felipe",
+                "Rocha",
                 "Tabira",
                 "Rua 2",
                 "123",

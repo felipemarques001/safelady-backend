@@ -44,6 +44,7 @@ public class AuthIT {
                 UUID.randomUUID(),
                 VALID_CPF,
                 "Felipe",
+                "Rocha",
                 "São Paulo",
                 "Rua 1",
                 passwordEncoder.encode(VALID_PASSWORD),

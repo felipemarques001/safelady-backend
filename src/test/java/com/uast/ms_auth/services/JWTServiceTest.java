@@ -27,7 +27,7 @@ public class JWTServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
+        user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Rocha", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
     }
 
     @Test

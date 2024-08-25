@@ -27,7 +27,7 @@ public class UserControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        createUserReqDTO = new CreateUserReqDTO("71793119015", "Felipe", "Tabira", "Rua 2", "123", "87999999999", "2002-09-09");
+        createUserReqDTO = new CreateUserReqDTO("71793119015", "Felipe", "Rocha", "Tabira", "Rua 2", "123", "87999999999", "2002-09-09");
     }
 
     @DisplayName("Given CreateUserReqDTO, when createUser(), then return a 201 response")

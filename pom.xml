@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.uast</groupId>
-	<artifactId>ms-auth</artifactId>
+	<artifactId>safelady-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-auth</name>
+	<name>safeLady-backend</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>

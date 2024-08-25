@@ -36,7 +36,7 @@ public class UserDetailsServiceImplTest {
     @DisplayName("Given CPF, when loadUserByUsername(), then return UserDetails")
     @Test
     void givenCpf_whenLoadUserByUsername_thenReturnUserDetails() {
-        UserDetails user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
+        UserDetails user = new User(UUID.randomUUID(), "71793119015", "Felipe", "Rocha", "Tabira", "Rua 2", "123", LocalDate.now(), "87999999999", UserRole.ADMIN);
         when(userRepository.findByCpf(anyString())).thenReturn(user);
 
         UserDetails userFounded = userDetailsService.loadUserByUsername(CPF);

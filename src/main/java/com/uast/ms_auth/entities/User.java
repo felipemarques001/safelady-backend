@@ -1,5 +1,6 @@
 package com.uast.ms_auth.entities;
 
+import com.uast.ms_auth.dtos.user.CreateUserReqDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +28,8 @@ public class User implements UserDetails {
     private UUID id;
 
     private String cpf;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String city;
     private String street;
     private String password;
@@ -36,6 +38,18 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+    public User(CreateUserReqDTO dto, String encodedPassword) {
+        this.cpf = dto.cpf();
+        this.firstName = dto.firstName();
+        this.lastName = dto.lastName();
+        this.city = dto.city();
+        this.street = dto.street();
+        this.password = encodedPassword;
+        this.birthDate = LocalDate.parse(dto.birthDate());
+        this.phoneNumber = dto.phoneNumber();
+        this.role = UserRole.USER;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
